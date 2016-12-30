@@ -1,4 +1,5 @@
 import React from 'react'; /// have to do this at the top of every component
+import { getFunName } from '../helpers';
 import { render } from 'react-dom';
 
 class StorePicker extends React.Component {
@@ -7,7 +8,7 @@ class StorePicker extends React.Component {
       <form className="store-selector">
         { /* Here is a comment.... has to be inside yr html bc otherwise it's read as another top-level element. how disagreeable */ }
         <h2>Please enter a store</h2>
-        <input type="text" required placeholder="Store Name" />
+        <input type="text" required placeholder="Store Name" defaultValue={getFunName()}/>
         <button type="submit">Visit Store</button>
       </form>
       )
