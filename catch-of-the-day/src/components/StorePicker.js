@@ -42,5 +42,8 @@ export default StorePicker;
   - STATE: hold data 
   - PROPS: pass data along to yr component
   - BUT ALSO CONTEXT: declare at a top level & then it's available globally - while most of the time this isn't great bc React takes an individual component approach a la frank but the browserrouter is handy to be able to use
-
 */
+/* vid 13: understanding state
+STATE IS a representation of all the data in our application. Think about state as one object that holds all of the data.
+
+*/ 
