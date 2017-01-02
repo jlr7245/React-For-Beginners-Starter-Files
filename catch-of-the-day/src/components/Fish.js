@@ -1,6 +1,7 @@
 import React from 'react';
 import { formatPrice } from '../helpers';
 
+
 class Fish extends React.Component { 
   render() {
     const { details, index } = this.props;
