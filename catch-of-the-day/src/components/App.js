@@ -120,6 +120,10 @@ class App extends React.Component { //// `Component` HAS TO BE UPPERCASE!!!!
   }
 }
 
+App.propTypes = {
+  params: React.PropTypes.object.isRequired
+}
+
 export default App;
 // start by running `npm start` in the terminal
 // 17: just pass over the parts of the state you need

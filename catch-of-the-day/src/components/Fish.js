@@ -21,6 +21,12 @@ class Fish extends React.Component {
   }
 }
 
+Fish.propTypes = {
+  details: React.PropTypes.object.isRequired,
+  index: React.PropTypes.string.isRequired,
+  addToOrder: React.PropTypes.func.isRequired,
+}
+
 export default Fish;
 
 // vid 16: can't access key inside of a component, which is. you know. fine

@@ -15,4 +15,8 @@ const Header = (props) => { //// now it's a "stateless functional component". th
     )
 }
 
+Header.propTypes = {
+  tagline: React.PropTypes.string.isRequired
+}
+
 export default Header;
