@@ -24,10 +24,24 @@ class App extends React.Component { //// `Component` HAS TO BE UPPERCASE!!!!
       context: this,
       state: 'fishes'
     });
+    
+    ///checking storage for previous order
+    const localStorageRef = localStorage.getItem(`order-${this.props.params.storeId}`);
+    
+    if(localStorageRef) {
+      //update our App component's order state
+      this.setState({
+        order: JSON.parse(localStorageRef),
+      })
+    }
   }
   
   componentWillUnmount() {
     base.removeBinding(this.ref);
+  }
+  
+  componentWillUpdate(nextProps, nextState) {
+    localStorage.setItem(`order-${this.props.params.storeId}`, JSON.stringify(nextState.order));
   }
   
   addFish(fish) {
@@ -67,7 +81,11 @@ class App extends React.Component { //// `Component` HAS TO BE UPPERCASE!!!!
             }
           </ul>
         </div>
-        <Order fishes={this.state.fishes} order={this.state.order} />
+        <Order 
+          fishes={this.state.fishes} 
+          order={this.state.order} 
+          params={this.props.params}
+        />
         <Inventory addFish={this.addFish} loadSamples={this.loadSamples} />
       </div>
     )
@@ -78,3 +96,4 @@ export default App;
 // start by running `npm start` in the terminal
 // 17: just pass over the parts of the state you need
 // 18: this all sounded about like word salad. Gotta revisit
+// 19: The stuff from 18 is sounding less word-salad-y but the concept of `shouldComponentUpdate` is not making a whole lotta sense to me
