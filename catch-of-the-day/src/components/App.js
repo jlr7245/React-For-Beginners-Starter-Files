@@ -4,6 +4,7 @@ import Order from './Order';
 import Inventory from './Inventory';
 import Fish from './Fish';
 import sampleFishes from '../sample-fishes';
+import base from '../base';
 
 class App extends React.Component { //// `Component` HAS TO BE UPPERCASE!!!!
   constructor() {
@@ -16,6 +17,17 @@ class App extends React.Component { //// `Component` HAS TO BE UPPERCASE!!!!
       fishes: {},
       order: {},
     };
+  }
+  
+  componentWillMount() { /// specifically comes from react, see docs - "invoked once, both on the client and server, immediately before the initial rendering occurs. If you call `setState` within this method, `render()` will see the updated state and will be executed only once despite the state change."
+    this.ref = base.syncState(`${this.props.params.storeId}/fishes`, {
+      context: this,
+      state: 'fishes'
+    });
+  }
+  
+  componentWillUnmount() {
+    base.removeBinding(this.ref);
   }
   
   addFish(fish) {
@@ -65,3 +77,4 @@ class App extends React.Component { //// `Component` HAS TO BE UPPERCASE!!!!
 export default App;
 // start by running `npm start` in the terminal
 // 17: just pass over the parts of the state you need
+// 18: this all sounded about like word salad. Gotta revisit
