@@ -55,7 +55,7 @@ class App extends React.Component { //// `Component` HAS TO BE UPPERCASE!!!!
             }
           </ul>
         </div>
-        <Order />
+        <Order fishes={this.state.fishes} order={this.state.order} />
         <Inventory addFish={this.addFish} loadSamples={this.loadSamples} />
       </div>
     )
@@ -64,3 +64,4 @@ class App extends React.Component { //// `Component` HAS TO BE UPPERCASE!!!!
 
 export default App;
 // start by running `npm start` in the terminal
+// 17: just pass over the parts of the state you need
