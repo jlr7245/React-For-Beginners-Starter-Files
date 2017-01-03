@@ -68,11 +68,13 @@ class App extends React.Component { //// `Component` HAS TO BE UPPERCASE!!!!
     this.setState({fishes});
   }
   
+  //loadSamples = () => {  //instead of ln 72 ... this is the future ... sort of like those fat arrow event listeners
   loadSamples() {
     this.setState({
       fishes: sampleFishes,
     });
   }
+  //}; // instead of ln 76
   
   addToOrder(key) {
     /// state copy
